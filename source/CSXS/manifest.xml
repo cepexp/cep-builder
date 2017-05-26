@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ExtensionManifest Version="6.0" ExtensionBundleId="com.adobe.europa" ExtensionBundleVersion="1.0.1"
+				   ExtensionBundleName="Connector" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ExtensionList>
+		<Extension Id="com.adobe.europa.connector" Version="1.0.3"/>
+	</ExtensionList>
+	<ExecutionEnvironment>
+		<HostList>
+			<Host Name="PHXS" Version="[18.0,99.9]"/>
+			<Host Name="PHSP" Version="[18.0,99.9]"/>
+			<Host Name="ILST" Version="[21.0,99.9]" />
+			<Host Name="IDSN" Version="[12.0,99.9]" />
+		</HostList>
+		<LocaleList>
+			<Locale Code="All" />
+		</LocaleList>
+		<RequiredRuntimeList>
+			<RequiredRuntime Name="CSXS" Version="6.0" />
+		</RequiredRuntimeList>
+	</ExecutionEnvironment>
+	<DispatchInfoList>
+		<Extension Id="com.adobe.europa.connector">
+			<DispatchInfo >
+				<Resources>
+					<MainPath>./cep.html</MainPath>
+					<CEFCommandLine>
+						<Parameter>--enable-speech-input</Parameter>
+						<Parameter>--enable-media-stream</Parameter>
+						<Parameter>--allow-file-access</Parameter>
+						<Parameter>--allow-file-access-from-files</Parameter>
+						<Parameter>--high-dpi-support=1</Parameter>
+						<Parameter>--enable-nodejs</Parameter>
+						<Parameter>--mixed-context</Parameter>
+					</CEFCommandLine>
+					<ScriptPath>./jsx/init.jsx</ScriptPath>
+				</Resources>
+				<Lifecycle>
+					<AutoVisible>true</AutoVisible>
+				</Lifecycle>
+				<UI>
+					<Type>Panel</Type>
+					<Menu>Project Europa</Menu>
+					<Geometry>
+						<Size>
+							<Height>600</Height>
+							<Width>400</Width>
+						</Size>
+						<MinSize>
+							<Height>300</Height>
+							<Width>200</Width>
+						</MinSize>
+					</Geometry>
+					<Icons>
+						<Icon Type="Normal">./europa-icon.png</Icon>
+						<Icon Type="RollOver">./europa-over-icon.png</Icon>
+						<Icon Type="DarkNormal">./europa-icon.png</Icon>
+						<Icon Type="DarkRollOver">./europa-over-icon.png</Icon>
+					</Icons>
+				</UI>
+			</DispatchInfo>
+		</Extension>
+	</DispatchInfoList>
+</ExtensionManifest>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="./templates/edgecc/edge.css">
+    <link rel="stylesheet" type="text/css" href="./templates/products/PHXS/css/darker/main.css">
+</head>
+<style type="text/css">
+    body, html
+    {
+        margin: 0; padding: 0; height: 100%; overflow: hidden;
+    }
+
+    #content
+    {
+        position:absolute; left: 0; right: 0; bottom: 0; top: 0;
+    }
+</style>
+<script>
+    loadinginCEP = "true";
+</script>
+<script src="jsx/lib/CSInterface.js"></script>
+<script>
+    var csInterface = new CSInterface();
+    console.log('Adding CSInterface com.adobe.europa.server.port listener');
+    csInterface.addEventListener("com.adobe.europa.server.port",function (event) {
+        console.log('com.adobe.europa.server.port : '+event.data);
+        var link = "http://localhost:"+event.data;
+        var contenetFrame = document.getElementById("contentFrame");
+        contenetFrame.setAttribute("enable-nodejs","true");
+        contenetFrame.setAttribute("src", link);
+        console.log('loading app @ '+link);
+        setTimeout(function () {
+            document.getElementById("loadingFrame").style.display = 'none';
+            // Pass parent's "file://" localstorage to iframe so that even url changes, we can get retrive.
+            contenetFrame.contentWindow.parentLocalStorage = window.localStorage;
+            console.log('Hiding loadingFrame');
+        },1250);
+    });
+    function loadJS(file) {
+        var jsElm = document.createElement("script");
+        jsElm.type = "application/javascript";
+        jsElm.src = file;
+        document.body.appendChild(jsElm);
+        console.log('loaded : '+file);
+    }
+</script>
+<body>
+<div id="content">
+<iframe id="loadingFrame" src="loading.html" width="100%" height="100%" frameborder="0" allowtransparency="true">
+</iframe>
+<iframe id="contentFrame" src="loading.html" width="100%" height="100%" frameborder="0" allowtransparency="true">
+</iframe>
+</div>
+<script>
+loadJS("project-europa-cep.1.0.0-server.min.js");
+</script>
+</body>
+</html>

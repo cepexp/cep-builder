@@ -1,0 +1,27 @@
+<head>
+  <script>document.write('<base href="' + document.location + '" />');</script>
+  <title>Project Europa</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="./templates/edgecc/edge.css">
+  <link rel="stylesheet" type="text/css" href="./templates/products/PHXS/css/darker/main.css">
+  <script src="project-europa-cep.1.0.0-misc.min.js"></script>
+  <link rel="stylesheet" href="project-europa-cep.1.0.0.min.css" />
+  <script src="project-europa-cep.1.0.0.min.js"></script>
+  <!-- 1. Load libraries -->
+  <!-- Polyfill for older browsers -->
+  <!-- 3. CEP JS files -->
+  <script src="./jsx/lib/CSInterface.js"></script>
+  <script src="./jsx/lib/IMSInterface.js"></script>
+  <script src="http://requirejs.org/docs/release/2.2.0/minified/require.js"></script>
+  <script src="./jsx/jsx_connector.js"></script>
+</head>
+<!-- 4. Display the application -->
+<body onLoad="onLoaded()">
+<cep-app>
+  <p align="center" style="margin: auto;width: 50%;height: 50%">
+  <div class="panel-footer-icon-syncing edgecc-icon" style="font-size: 25px;">newsyncing</div>
+  </p>
+</cep-app>
+</body>
+</html>

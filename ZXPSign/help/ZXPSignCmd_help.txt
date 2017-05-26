@@ -1,0 +1,21 @@
+Usage:
+    ZXPSignCmd -sign <inputDirectory> <outputZxp> <p12> <p12Password> [options]
+	options:
+		-tsa <timestampURL> - will attempt to timestamp the ZXP using supplied timestamp server. For example, https://timestamp.geotrust.com/tsa
+
+    ZXPSignCmd -sign <inputDirectory> <outputZxp> -s <identity> [options]
+	options:
+		-keychain <filename> - identity is only looked-for in the specific keychain given
+
+		-tsa <timestampURL> - will attempt to timestamp the ZXP using supplied timestamp server. For example, https://timestamp.geotrust.com/tsa
+
+    ZXPSignCmd -verify <zxp>|<extensionRootDirectory> [options]
+	options:
+		-certInfo - will print out information about certificates (including timestamp and certificate revocation information)
+		-skipOnlineRevocationChecks - will skip online checks for certificate revocation (certificate revocation checks only happen with -certInfo flag set)
+		-addCerts <certificate1> <certificate2>... - will verify certificate chain and assess whether or not DER encoded certificates passed in are included
+
+    ZXPSignCmd -selfSignedCert <countryCode> <stateOrProvince> <organization> <commonName> <password> <outputPath.p12> [options]
+	options: 
+		-locality <locality> -orgUnit <orgUnit> -email <email> -validityDays <validityDays> - are optional attributes for self-signed p12 certificates
+
